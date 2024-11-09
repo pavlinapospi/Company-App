@@ -1,0 +1,70 @@
+/* registration-form */
+.registration-form {
+    min-height: 90vh;
+    background:linear-gradient(rgba(0, 20, 22, 0.595),black),url(../img/img.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-form h1 {
+    color: white;
+    font-size: 45px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+}
+
+.registration-form form {
+    text-align: center;
+}
+
+input::placeholder {
+    color: rgb(94, 124, 122);
+}
+
+.reg-input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.btn {
+    width: 250px;
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: rgb(94, 124, 122);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3 linear;
+}
+
+.btn:hover {
+    background-color: rgb(125, 192, 188);
+}
+
+/* Classy pro Javascrip */
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
