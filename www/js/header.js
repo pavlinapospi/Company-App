@@ -1,4 +1,3 @@
-// Výběr HTML tagů,se kterými budeme pracovat
 const menuIcon = document.querySelector(".menu-icon")
 const navigation = document.querySelector("nav")
 const hamburgerIcon = document.querySelector(".fa-solid")
