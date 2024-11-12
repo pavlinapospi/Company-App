@@ -56,8 +56,8 @@ function authentication($connection, $log_email, $log_password) {
             $result = mysqli_stmt_get_result($stmt);
 
             if($result->num_rows != 0) {
-                $password_database = mysqli_fetch_row($result);//zde je v proměné pole
-                $user_password_database = $password_database[0];//zde je v proměné string
+                $password_database = mysqli_fetch_row($result);
+                $user_password_database = $password_database[0];
 
                 if($user_password_database) {
                     return password_verify($log_password, $user_password_database);
@@ -92,7 +92,7 @@ function getUserId($connection, $email) {
 
         if(mysqli_stmt_execute($stmt)) {
             $result = mysqli_stmt_get_result($stmt);
-            $id_database = mysqli_fetch_row($result);//pole
+            $id_database = mysqli_fetch_row($result);
             $user_id = $id_database[0];
 
             return $user_id;
