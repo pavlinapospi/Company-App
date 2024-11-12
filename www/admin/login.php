@@ -13,15 +13,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $log_password = $_POST["login-password"];
 
     if(authentication($conn, $log_email, $log_password)) {
-        //ziskat id uzivatele
+    
         $id = getUserId($conn, $log_email);
         
         //Zabraňuje provedení tzv. fixation attack. Více zde: https://owasp.org/www-community/attacks/Session_fixation
         session_regenerate_id(true);
 
-        //Nastavení,že je užvatel přihlášen
         $_SESSION["is_logged_in"] = true;
-        //Nastavení ID užvatele
+        
         $_SESSION["logged_in_user_id"] = $id;
 
         redirectUrl("/www/admin/staff.php");
