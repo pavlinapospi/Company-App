@@ -21,9 +21,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         //Zabraňuje provedení tzv. fixation attack. Více zde: https://owasp.org/www-community/attacks/Session_fixation
         session_regenerate_id(true);
 
-        //Nastavení,že je užvatel přihlášen
         $_SESSION["is_logged_in"] = true;
-        //Nastavení ID užvatele
+        
         $_SESSION["logged_in_user_id"] = $id;
 
         redirectUrl("/www/admin/staff.php");
