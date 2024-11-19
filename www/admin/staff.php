@@ -1,18 +1,20 @@
 <?php
 
-require "../assets/database.php";
-require "../assets/staff.php";
-require "../assets/auth.php";
+require "../classes/Database.php";
+require "../classes/Staff.php";
+require "../classes/Auth.php";
 
 session_start();
 
-if( !isLoggedIn() ){
+if(!Auth::isLoggedIn() ){
     die("Nepovolený přístup");
 }
 
+$database = new Database();
+$connection = $database->connectionDB();
 
-$connection = connectionDB();
-$staff = getAllStaff($connection, "id, first_name, second_name");
+
+$staff = Staff::getAllStaff($connection, "id, first_name, second_name");
 
 ?>
 
@@ -26,6 +28,8 @@ $staff = getAllStaff($connection, "id, first_name, second_name");
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
     <script src="https://kit.fontawesome.com/6ae792aad6.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../css/admin-staff.css">
     <title>Document</title>
 </head>
 <body>
@@ -36,23 +40,30 @@ $staff = getAllStaff($connection, "id, first_name, second_name");
             <h1>Seznam zaměstnanců</h1>
         </section>
 
-        <section>
+        <section class="filter">
+            <input type="text" class="filter-input">
+        </section>
+
+        <section class="staffs-list">
             <?php if(empty($staff)): ?>
                 <p>Žádný zaměstnanci nebyli nalezeni</p>
-                <?php else: ?>
-                    <ul>
-                        <?php foreach($staff as $one_staff): ?>
-                            <li>
-                                <?php echo htmlspecialchars($one_staff["first_name"])." ".htmlspecialchars($one_staff["second_name"]) ?>
-                            </li>
+            <?php else: ?>
+                <div class="all-staffs">
+
+                    <?php foreach($staff as $one_staff): ?>
+                        <div class="one-staff">
+                            <h2><?php echo htmlspecialchars($one_staff["first_name"])." ".htmlspecialchars($one_staff["second_name"]) ?></h2>
                             <a href="one-staff.php?id=<?= $one_staff['id'] ?>">Více informací</a>
-                            <?php endforeach; ?>
-                        </ul>
-                        <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+            <?php endif; ?>
         </section>
     </main>
 
     <?php require "../assets/footer.php"; ?>
     <script src="../js/header.js"></script>
+    <script src="../js/filter.js"></script>
 </body>
 </html>

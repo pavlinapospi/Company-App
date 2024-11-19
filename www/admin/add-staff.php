@@ -1,13 +1,14 @@
 <?php
 
-require "../assets/database.php";
-require "../assets/staff.php";
-require "../assets/auth.php";
-require "../assets/url.php";
+require "../classes/Database.php";
+require "../classes/Url.php";
+require "../classes/Staff.php";
+require "../classes/Auth.php";
+
 
 session_start();
 
-if( !isLoggedIn() ){
+if( !Auth::isLoggedIn() ){
     die("Nepovolený přístup");
 }
 
@@ -25,12 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $life = $_POST["life"];
     $contract = $_POST["contract"];
 
-    $connection = connectionDB();
+    $database = new Database();
+    $connection = $database->connectionDB();
 
-    $id = createStaff($connection, $first_name, $second_name, $age, $life, $contract);
+    $id = Staff::createStaff($connection, $first_name, $second_name, $age, $life, $contract);
 
     if($id) {
-        redirectUrl("/www/admin/one-staff.php?id=$id");
+        Url::redirectUrl("/oop/Company-App/www/admin/one-staff.php?id=$id");
     } else {
         echo "Zaměstnanec nebyl vytvořen";
     }
@@ -48,6 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="../query/header-query.css">
     <link rel="stylesheet" href="../css/footer.css">
     <script src="https://kit.fontawesome.com/6ae792aad6.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../css/admin-add-staff.css">
+    <link rel="stylesheet" href="../query/admin-add-staff-query.css">
+    
+
     <title>Document</title>
 </head>
 <body>

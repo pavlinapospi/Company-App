@@ -1,0 +1,47 @@
+main {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.496),black),
+                url("../img/relax1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.one-staff {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-staff-box {
+    width: 300px;
+    min-height: 130px;
+    background-color:rgba(215, 248, 244, 0.668);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.one-staff-buttons a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+.edit-one-staff {
+    background-color:rgb(94, 124, 122) ;
+    margin-right: 10px;
+}
+
+.delete-one-staff {
+    background-color: rgb(145, 41, 41);
+    margin-left: 10px;
+}

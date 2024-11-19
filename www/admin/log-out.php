@@ -1,6 +1,6 @@
 <?php
 
-require "../assets/url.php";
+require "../classes/Url.php";
 
 // Initialize the session.
 // If you are using session_name("something"), don't forget it now!
@@ -24,5 +24,5 @@ session_destroy();
 
 //přesměrování na úvodní stranu
 
-redirectUrl("/www/index.php");
+Url::redirectUrl("/oop/Company-App/www/index.php");
 ?>

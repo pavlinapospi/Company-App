@@ -1,0 +1,73 @@
+main {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.203),black),
+                url(../img/relax.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* Main list section */
+.main-heading h1 {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+
+/* Filter section */
+.filter {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.filter-input {
+    width: 300px;
+    padding: 10px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.filter-input:focus {
+    border-color:rgba(215, 248, 244, 0.668);
+}
+
+/* Staffs list section */
+.all-staffs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.one-staff {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(215, 248, 244, 0.668);
+    text-align: center;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+}
+
+.one-staff:hover {
+    transform: scale(1.05);
+}
+
+.one-staff a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px 20px;
+    background:rgb(94, 124, 122);
+    color: white;
+    border-radius: 5px;
+    margin-top: 15px;
+}

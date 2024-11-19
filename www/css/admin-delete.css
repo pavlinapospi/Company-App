@@ -1,0 +1,69 @@
+main {
+    min-height: 100vh;
+    background:linear-gradient(black,rgb(10, 82, 68),black);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-form {
+    animation: shadow 2s alternate infinite;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.delete-from from {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.delete-form p {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btns button {
+    color: white;
+    background-color:rgb(145, 41, 41);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btns a {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(94, 124, 122);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.info-box{
+    color: white;
+    text-align: center;
+
+}
+
+@keyframes shadow {
+    0% {
+        box-shadow: 0px 0px 1px rgb(4, 4, 4);
+    }
+
+    100%{
+        box-shadow: 0px 0px 20px rgb(145, 41, 41);
+    }
+}

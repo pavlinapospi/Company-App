@@ -1,20 +1,23 @@
 <?php
 
-require "../assets/database.php";
-require "../assets/url.php";
-require "../assets/user.php";
+require "../classes/Database.php";
+require "../classes/Url.php";
+require "../classes/User.php";
 
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $conn = connectionDB();
+    $database = new Database();
+    $connection = $database->connectionDB();
+
+
     $log_email = $_POST["login-email"];
     $log_password = $_POST["login-password"];
 
-    if(authentication($conn, $log_email, $log_password)) {
+    if(User::authentication($connection, $log_email, $log_password)) {
         //ziskat id uzivatele
-        $id = getUserId($conn, $log_email);
+        $id = User::getUserId($connection, $log_email);
         
         //Zabraňuje provedení tzv. fixation attack. Více zde: https://owasp.org/www-community/attacks/Session_fixation
         session_regenerate_id(true);
@@ -23,8 +26,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["is_logged_in"] = true;
         //Nastavení ID užvatele
         $_SESSION["logged_in_user_id"] = $id;
+        //Nastavení role uživatele
+        $_SESSION["role"] = User::getUserRole($connection, $id);
 
-        redirectUrl("/www/admin/staff.php");
+
+        Url::redirectUrl("/oop/Company-App/www/admin/staff.php");
 
     } else {
         $error = "Chyba při přihlášení.";

@@ -1,0 +1,82 @@
+main {
+    min-height: 100vh;
+    background:linear-gradient(black,rgb(10, 82, 68),black);
+    padding-bottom: 50px;
+}
+
+.upload-photos {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-photos h1 {
+    margin-top: 20px;
+}
+
+.upload-photos form {
+    display: flex;
+    flex-direction: column;
+}
+
+#choose-file-text {
+    font-size: 20px;
+    text-align: center;
+    color:white;
+    background: rgb(94, 124, 122);
+    margin-top: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#choose-file {
+    display: none;
+}
+
+.upload-file {
+    font-size: 20px;
+    background:rgba(215, 248, 244, 0.668);
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/*Images section*/
+
+.images article {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.images img {
+    width: 300px;
+}
+
+.images-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.images-btn a {
+text-decoration: none;
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+}
+
+.images-btn-download {
+    background-color:rgb(94, 124, 122);
+}
+
+.images-btn-delete {
+    background-color: rgb(145, 41, 41);
+}
